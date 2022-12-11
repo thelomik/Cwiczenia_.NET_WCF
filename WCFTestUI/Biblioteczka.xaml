@@ -1,0 +1,40 @@
+﻿<Window x:Class="WCFTestUI.Biblioteczka"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WCFTestUI"
+        mc:Ignorable="d"
+        Title="Biblioteczka" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
+            <DataGrid Name="KsiazkiDataGrid" ItemsSource="{Binding}"  AlternatingRowBackground="LightBlue" AlternationCount="2" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                    <DataGridTextColumn Header="Tytuł" Binding="{Binding Tytul}"/>
+                    <DataGridTextColumn Header="Autor" Binding="{Binding Autor}"/>
+                    <DataGridTextColumn Header="Ilość stron" Binding="{Binding IloscStron}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+        <Button Grid.Column="0" Grid.Row="1" Name="DodajButton" Click="DodajButton_Click">Dodaj</Button>
+        <Button Grid.Column="1" Grid.Row="1" Name="EdutujButton" Click="EdutujButton_Click">Edytuj</Button>
+        <Button Grid.Column="2" Grid.Row="1" Name="UsunButton" Click="UsunButton_Click">Usuń</Button>
+        <Button Grid.Column="0" Grid.Row="2" Name="PokazButton" Click="PokazButton_Click">Pokaż</Button>
+        <Button Grid.Column="1" Grid.Row="2" Name="PokazWszystkieButton" Click="PokazWszystkieButton_Click">Pokaż wszystkie</Button>
+    </Grid>
+</Window>
